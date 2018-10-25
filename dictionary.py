@@ -40,3 +40,4 @@ def make_dictionary(length, cycle):
 def read_dictionary(length):
     df = pd.read_csv('outputs/dict{0}.csv'.format(length))
     df['word'] = df['form'].apply(lambda x: Word(x))
+    return df
