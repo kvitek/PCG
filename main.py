@@ -16,9 +16,9 @@ def rho_new(w, cycle):
     for (e, pw) in w.symbols:
         new.symbols.append((cycle - e -1, pw))
     return new
-
+            
 def process_words(length, cycle, rho, istart, iend):    
-    f = open('outputs/wg{0}-{1}-{2}.txt'.format(length, istart, iend), 'w')
+    f = open('outputs/wg/wg{0}-{1}-{2}.txt'.format(length, istart, iend), 'w')
     wdict = ddict.read_dictionary(length)
     
     data = []
@@ -46,7 +46,7 @@ def process_words(length, cycle, rho, istart, iend):
 if __name__ == '__main__':
     cpus = os.cpu_count() - 1
     params = []
-    start, end, step = 0, 1000, 20
+    start, end, step = 1000, 5000, 100
     for i in range(start, end, step):
         params.append([6, 6, rho_new, i, i + step])    
     with Pool(cpus) as p:
