@@ -10,12 +10,7 @@ from multiprocessing import Pool
 import os
 import dictionary as ddict
 
-def rho_new(w, cycle):
-    new = Word()
-    new.symbols = []
-    for (e, pw) in w.symbols:
-        new.symbols.append((cycle - e -1, pw))
-    return new
+
             
 def process_words(length, cycle, rho, istart, iend):    
     f = open('outputs/wg/wg{0}-{1}-{2}.txt'.format(length, istart, iend), 'w')
